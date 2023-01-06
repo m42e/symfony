@@ -495,7 +495,7 @@ class Email extends Message
 
             $related = false;
             foreach ($names as $name) {
-                if ($name !== $attachment['name']) {
+                if ($name !== $attachment['name'] && (!$part->hasContentId() || $name !== $part->getContentId())) {
                     continue;
                 }
                 if (isset($relatedParts[$name])) {
